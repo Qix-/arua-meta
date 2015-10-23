@@ -1,0 +1,7 @@
+/examples/**/*.ar.html
+
+# not quite ready to release these yet
+/arua.grammar
+/arua.spec
+/syntax/grammar.vim
+/syntax/spec.vim

@@ -1,0 +1,27 @@
+use sys.io as io
+
+fn main (argv [str]) i32
+	if argv.length != 2
+		io.err.print("Please specify a number (1 - 10).\n")
+		ret 1
+
+	n = argv[1] as i32
+
+	switch n
+		case 0 next # if constant, treated as <switch arg> == <case>
+		case 1 next
+		case 2 next
+		case 3
+			io.out.print("You chose a number between 0 and 3\n")
+		case n >= 4 && n <= 8
+			io.out.print("You chose a number between 4 and 8\n")
+		case 9
+			io.out.print("You chose 9\n")
+			next
+		case 10
+			io.out.print("You either chose 9 or 10.\n")
+		default
+			io.err.print("You chose a number other than 0-10! Can't you read?")
+			ret 2
+
+	ret 0

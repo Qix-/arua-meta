@@ -1,0 +1,13 @@
+use sys.io as io
+
+fn main (argv [str]) i32
+	!x i32 = 10
+	y i32 = 20
+
+	x += 15
+#	y += 15		# causes an error since `y' isn't mutable
+
+	z i32 = x + y
+
+	io.out.write("x = #{x}\ny = #{y}\nz = #{z}\n")
+	ret 0

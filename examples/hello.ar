@@ -1,0 +1,12 @@
+use sys.io as io
+use sys.time as time
+
+fn main(argv [str]) i32
+	if argv.length != 1
+		io.err.write("Please tell me your name!\n")
+		ret 1
+
+	timeOfDay str = if time.getHour() < 12 then "morning" else "afternoon"
+
+	io.out.write("Good #{timeOfDay}, #{argv[1]}!\n")
+	ret 0

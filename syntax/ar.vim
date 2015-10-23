@@ -65,12 +65,15 @@ syn match aruaStringEscape	"\v\\u[0-9A-F]{4}" contained containedin=aruaString
 syn match aruaError			"\v\\u([0-9A-F]{4})@![^\"\\]{,4}" contained containedin=aruaString
 syn match aruaStringDelim	"\v\{(0|[1-9][0-9]*)\}" contained containedin=aruaString
 syn region aruaStringInterp	matchgroup=aruaStringInterpDelim start="\v#\{" end="\v\}" contained containedin=aruaString contains=@aruaAll
-syn match aruaNumber		"\v<[0-9]+>"
 
 syn region aruaComplexMath	start="\v\`" end="\v\`"
 " not at all an exhaustive list. complex numbers are still under extreme
 " consideration.
 syn match aruaComplexSpec	"\v<[ie√πτεφθ∞λμξΣσςΩω]>" contained containedin=aruaComplexMath transparent
+
+syn match aruaNumber		"\v<(0|[1-9][0-9]*)>"
+syn match aruaNumber		"\v<\.[0-9]+>"
+syn match aruaNumber		"\v<(0|[1-9][0-9]*)\.[0-9]+>"
 
 " we only allow uppercase letters here in order to allow for type suffixes.
 " otherwise, the suffix i32 would be acceptible for base 19 and above, for

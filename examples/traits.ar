@@ -1,0 +1,60 @@
+# this example is highly prototypical
+# and is definitely going to change.
+use sys.io as io
+use std.math.Color as Color
+
+trait Blinkable
+	fn blink()
+	fn blink(times i8)
+
+on Blinkable
+	fn blink(times i8)
+		for [1..times]
+			this.blink()
+
+trait Creature
+	fn countLegs() i16
+	fn countEyes() i16
+	fn hasFur() i1
+	fn getUniqueEyeColors() [Color]
+
+struct Eye
+	color Color
+
+struct Cyclops
+	eye Eye
+
+struct Human
+	leftEye Eye
+	rightEye Eye
+
+on Eye behave Blinkable
+	fn blink()
+		io.out.write("an eye blinked!\n")
+
+on Cyclops forward Blinkable to eye
+
+on Human behave Blinkable
+	fn blink()
+		this.leftEye.blink()
+		this.rightEye.blink()
+
+on Cyclops behave Creature
+	fn countLegs() i16
+		ret 2
+	fn countEyes() i16
+		ret 1
+	fn hasFur() i1
+		ret true
+	fn getUniqueEyeColors() [Color]
+		ret [this.eye.color]
+
+on Human behave Creature
+	fn countLegs() i16
+		ret 2
+	fn countEyes() i16
+		ret 2
+	fn hasFur() i1
+		ret false
+	fn getUniqueEyeColors() [Color]
+		ret [this.leftEye.color, this.rightEye.color].unique()

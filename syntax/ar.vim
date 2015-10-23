@@ -26,9 +26,9 @@ syn match aruaError			"\v^ +\t+"
 
 syn keyword aruaKeyword		fn trait ret this on struct if then else elseif
 syn keyword aruaKeyword		use as try catch finally throw switch case next
-syn keyword aruaKeyword		default
+syn keyword aruaKeyword		default forward to behave for
 
-syn match aruaDecl			"\v^[ \t]*\!?(if|ret|switch|case|fn|trait|ret)@![a-zA-Z][a-zA-Z0-9]*[ \t]+" contains=aruaOperatorMut,arua nextgroup=@aruaTypes
+syn match aruaDecl			"\v^[ \t]*\!?(if|ret|switch|case|fn|trait|ret|for)@![a-zA-Z][a-zA-Z0-9]*[ \t]+" contains=aruaOperatorMut,arua nextgroup=@aruaTypes
 
 syn match aruaOperatorMut	"\v\!" contained
 syn match aruaType			"\v[a-zA-Z][a-zA-Z0-9]*" contained contains=@aruaTypes

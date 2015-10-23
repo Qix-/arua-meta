@@ -85,8 +85,8 @@ to be too irregular for predictive tooling to be created.
 Further, as we all know, C-style macros are indeed very powerful, but they allow
 for crazy and unsensible code to be written.
 
-I took a step back and asked *what are we **really** trying to accomplish with
-macros*? Simple: writing complex, potentially repetative code multiple times,
+I took a step back and asked _what are we **really** trying to accomplish with
+macros_? Simple: writing complex, potentially repetative code multiple times,
 inlining such instructions.
 
 We can achieve this with functions, but indeed with traditional functions you

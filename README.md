@@ -57,7 +57,7 @@ Sure:
 - Traits + Composition = <3
 - Immutable until specified otherwise
 - Arbitrary integer widths
-- Java-like dependency resolution (Java *gets it right*&8482;)
+- Java-like dependency resolution (Java *gets it right*&#8482;)
 - Explicit switch fallthrough
 - Bounds-checked arrays (that are still 100% compatible with the C family ABI)
 - Regular language - lifetimes still allow for static analysis but don't require

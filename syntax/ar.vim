@@ -56,6 +56,7 @@ syn match aruaOperator		"\v\=\=?" display
 syn match aruaComment		"\v#.*$" display
 
 syn keyword aruaBoolean		true false
+syn keyword aruaInfinity	infinity
 
 syn region aruaString		start="\v\"" skip="\v(\\\\|\\\")" end="\v\""
 syn match aruaStringEscape	"\v\\[\\rnfvb0]" contained containedin=aruaString
@@ -161,6 +162,7 @@ AruaHiLink aruaPrimitive			Type
 AruaHiLink aruaComment				Comment
 AruaHiLink aruaOperator				Operator
 AruaHiLink aruaBoolean				Boolean
+AruaHiLink aruaInfinity				Boolean
 AruaHiLink aruaString				String
 AruaHiLink aruaStringEscape			SpecialChar
 AruaHiLink aruaStringDelim			Delimiter

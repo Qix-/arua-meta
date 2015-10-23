@@ -164,3 +164,6 @@ syn cluster aruaTypes contains=aruaStringType,aruaPrimitive
 
 syn cluster aruaAll contains=aruaKeyword,aruaNumber,aruaError,aruaNumericError,
 \                            aruaOperator,aruaBoolean,aruaString,@aruaTypes
+
+" vi: tabstop=4
+"

@@ -1,0 +1,56 @@
+fn numbers()
+	base10 i32 = 1234
+	base16 i32 = 0xABCD1234
+	base20 i32 = 20xHIJ1234
+	base36 i32 = 36xXYZ1234
+	base1  i32 = 1x00000 # 5 --- en.wikipedia.org/wiki/Unary_numeral_system
+	base2  i32 = 2x10110100101101000001010111
+	base3  i32 = 3x122212100101
+
+	int i32 = 0
+	short i16 = 0
+	long i64 = 0
+
+	float f32 = 0.0
+	double f64 = 0.0
+	doubleFloat f128 = 0.0
+
+	!boolean i1 = 0
+	boolean = true
+	boolean = false
+
+	boolean ||= true
+	boolean &&= false
+
+	!foo i32 = 5
+
+	foo *= 16
+	foo += 36xARUA
+	foo <<= 2
+	foo++
+
+	foo *= ++foo
+
+fn complexNumbers()
+	# complex math is under heavy consideration as of now.
+	# this demo is neither complete nor finalized.
+	# input is definitely welcome.
+
+	# as well, "complex" math is a bit of a misnomer, as the region simply
+	# enables special identifiers and wrappers for the `math` zone.
+
+	a i32 = 15
+	b i32 = 26
+	hypotenuse f32 = `sqrt(a^2 + b^2)` # 30.0166620396
+	hypotenuse2 f32 = `√(a^2 + b^2)` #   ^ equivalent
+
+	iSquared f32 = `i ^ 2` # -1
+
+	tau f64 = `2π`
+
+	radius f32 = 15.8
+	cirumference f32 = `τ * radius`
+
+	tauEpsilon f128 = `τ - ε`
+
+	isInf i1 = infinity == `∞` # true (1)

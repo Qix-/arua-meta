@@ -61,10 +61,10 @@ on Human be Creature
 
 on Cyclops
 	fn roar()
-		sys.io.write("Moo!\n")
+		io.out.write("Moo!\n")
 
 on Human
 	fn exclaim()
-		sys.io.write("Jobs! Taxes! Madonna!\n")
+		io.out.write("Jobs! Taxes! Madonna!\n")
 
 

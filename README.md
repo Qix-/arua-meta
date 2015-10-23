@@ -75,6 +75,7 @@ Sure:
   completely configurable for just *how extreme* you want size/speed
   considerations to be (e.g. loop unrolling thresholds, extent of de-branching,
   etc.)
+- Complex math built directly into the language
 
 #### Why is *No Macros* considered a feature?
 If you've been following Rust at all, you'd know that [macros are currently the

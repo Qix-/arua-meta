@@ -28,18 +28,18 @@ struct Human
 	leftEye Eye
 	rightEye Eye
 
-on Eye behave Blinkable
+on Eye be Blinkable
 	fn blink()
 		io.out.write("an eye blinked!\n")
 
 on Cyclops forward Blinkable to eye
 
-on Human behave Blinkable
+on Human be Blinkable
 	fn blink()
 		this.leftEye.blink()
 		this.rightEye.blink()
 
-on Cyclops behave Creature
+on Cyclops be Creature
 	fn countLegs() i16
 		ret 2
 	fn countEyes() i16
@@ -49,7 +49,7 @@ on Cyclops behave Creature
 	fn getUniqueEyeColors() [Color]
 		ret [this.eye.color]
 
-on Human behave Creature
+on Human be Creature
 	fn countLegs() i16
 		ret 2
 	fn countEyes() i16
@@ -66,3 +66,5 @@ on Cyclops
 on Human
 	fn exclaim()
 		sys.io.write("Jobs! Taxes! Madonna!\n")
+
+

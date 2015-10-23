@@ -5,7 +5,7 @@
 # Arua-Lang Proposal
 
 This is the Arua Language proposal. This readme answers some meta-questions
-(i.e. *why another language*, etc.) and provides a table of contents to the
+(e.g. *why another language*, etc.) and provides a table of contents to the
 rest of the proposal's contents.
 
 ## Answers

@@ -20,8 +20,9 @@ else
 	command! -nargs=+ AruaSpecHiLink hi def link <args>
 endif
 
-syn match aruaSpecComment				"\v\#.*$" contains=aruaSpecTodo
+syn match aruaSpecComment				"\v\#.*$" contains=aruaSpecTodo,aruaSpecSubRef
 syn keyword aruaSpecTodo				TODO FIXME RFC XXX HELP contained
+syn match aruaSpecSubRef				"\v§[0-9]+(\.[0-9]+)*" contained
 
 syn keyword aruaSpecStability			FROZEN UNCONFIRMED DEPRECATED RFC PROPOSED
 
@@ -44,3 +45,4 @@ AruaSpecHiLink aruaSpecIdentifier		Identifier
 AruaSpecHiLink aruaSpecIdentifierRef	Special
 AruaSpecHiLink aruaSpecOperator			Operator
 AruaSpecHiLink aruaSpecString			String
+AruaSpecHiLink aruaSpecSubRef			Type

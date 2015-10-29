@@ -225,7 +225,7 @@
 # 1) in the top level of the directory, for all `.zone' files, added in ASCII-
 #    alphabetical order
 # 2) usage of the directory as a base folder for zone source files, as described
-#    by section !!TODO!!
+#    by section §1.3.2.1
 
 # In the event the path is a file and a `.zone' file, the file shall be added
 # as a zone library.

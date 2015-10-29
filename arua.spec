@@ -202,7 +202,13 @@
 # Functions convey intent - logical separations of execution. Macros do not
 # guarantee such conveyance.
 
-# 1.3 DEPENDENCIES
+# 2 HIGH-LEVEL CONCEPTS
+
+# This section describes and defines the high-level concepts and constructs
+# that the Arua universe shall adhere to. This section shall be considered
+# part of the spec and all implementations shall conform to this section.
+
+# 2.1 DEPENDENCIES
 
 # Arua uses a dot-path directory-based module system. Users of Java will find
 # this dependency system very familiar and comfortable. Dependencies are to be
@@ -214,7 +220,7 @@
 # 1) dependency paths
 # 2) zones
 
-# 1.3.1 DEPENDENCY PATHS
+# 2.1.1 DEPENDENCY PATHS
 
 # The compiler shall take a set of paths, both directories and files, that
 # indicate from where zones are located.
@@ -225,7 +231,7 @@
 # 1) in the top level of the directory, for all `.zone' files, added in ASCII-
 #    alphabetical order
 # 2) usage of the directory as a base folder for zone source files, as described
-#    by section §1.3.2.1
+#    by section §2.1.2.1
 
 # In the event the path is a file and a `.zone' file, the file shall be added
 # as a zone library.
@@ -238,7 +244,7 @@
 # enforced by the implementation, as dependency paths are not found in the
 # language itself.
 
-# 1.3.2 ZONES
+# 2.1.2 ZONES
 
 # Zones are Arua's modules. Zones are similar to namespaces, and as such are
 # nestable.
@@ -253,7 +259,7 @@
 UNCONFIRMED
 zone_identifier: /[A-Za-z][A-Za-z0-9]*/
 
-# 1.3.2.1 ZONE PATHS
+# 2.1.2.1 ZONE PATHS
 
 # Zone paths are dot-delimited paths that take two forms:
 
@@ -274,3 +280,25 @@ zone_path: <zone_identifier> ("." <zone_identifier>)*
 
 RFC
 zone_path_absolute: "." <zone_path>
+
+# 3 SEMANTICS AND SYNTAX
+
+# This section describes and defines the Arua language semantics and syntax.
+
+# 3.1 ARUA SOURCE FILE
+
+# Arua source files consist of two major sections, of which must appear in the
+# following order:
+
+# 1) imports
+# 2) code
+
+# Imports specify which functions, traits and structs to bring into the current
+# zone for usage.
+
+# Code defines zones, functions, traits and structs.
+
+# Any imports (1) found after any code statements (2), or any code
+# statements (2) that are found before imports (1), shall be considered
+# errorneous and require compilation to fail. User notification is
+# implementation specific.

@@ -1,0 +1,36 @@
+use sys.io as io
+
+fn greaterThanTen(i i32) i1
+	# could be simplified to:
+	#	ret i > 10
+	if i > 10
+		ret true
+	ret false
+
+fn betweenTens(i i32) i1
+	if i < -10
+		ret false
+	elseif i > 10
+		ret false
+	else
+		ret true
+
+fn expression(i i32) str
+	# demonstrates the use of expressions
+	# highly experimental, will definitely result in an RFC
+	ret
+		if i == 15
+			use "you have specified exactly 15!"
+		else
+			if i < 15
+				use "you specified < 15"
+			else
+				use "you specified > 15"
+
+fn printBetweenTens(start i32, end i32)
+	for i in [start .. end]
+		io.out.write("#{i}: #{betweenTens(i)}\n")
+
+fn printGreaterThanTen(start i32, end i32)
+	for i in [start .. end]
+		io.out.write("#{i}: #{greaterThanTen(i)}")

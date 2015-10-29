@@ -64,6 +64,10 @@ function generateError(i) {
 		inverse = '[' + inverse + ']';
 	}
 
+	if (i === 16) {
+		i = '(0|16)';
+	}
+
 	return 'syn match ' + errorLabel + '\t"\\v<' + i + 'x'
 		+ '(' + pattern + '*' + '(' + inverse + '+'
 		+ pattern + '*)+)>"';

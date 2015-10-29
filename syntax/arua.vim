@@ -152,7 +152,7 @@ syn match aruaNumericError	"\v<33x([0-9A-W]*([X-Z]+[0-9A-W]*)+)>"
 syn match aruaNumber		"\v<34x[0-9A-X]+>"
 syn match aruaNumericError	"\v<34x([0-9A-X]*([YZ]+[0-9A-X]*)+)>"
 syn match aruaNumber		"\v<35x[0-9A-Y]+>"
-syn match aruaNumericError	"\v<35x([0-9A-Y]*([Z]+[0-9A-Y]*)+)>"
+syn match aruaNumericError	"\v<35x([0-9A-Y]*(Z+[0-9A-Y]*)+)>"
 syn match aruaNumber		"\v<36x[0-9A-Z]+>"
 
 AruaHiLink aruaKeyword				Keyword

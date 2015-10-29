@@ -67,4 +67,3 @@ on Human
 	fn exclaim()
 		io.out.write("Jobs! Taxes! Madonna!\n")
 
-

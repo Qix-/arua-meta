@@ -106,7 +106,7 @@
 
 # 1) introduction
 # 2) high-level concepts
-# 3) syntax, constrants and semantics
+# 3) syntax, constraints and semantics
 
 # 0.3 LICENSE
 
@@ -174,7 +174,7 @@
 
 # While the above description of a system is broad and seemingly unrelated to
 # a programming language, Arua is designed with the system in mind. Unlike C
-# and its sister languages, Arua aims to inlude the system in its consider-
+# and its sister languages, Arua aims to include the system in its consider-
 # ations.
 
 # 1.2 INTENT
@@ -196,7 +196,7 @@
 
 # Arua recognizes this necessity, but instead chooses optimization rather than
 # a new construct, and thus necessitates the use of functions (yes, regular
-# functions) in lieu of macros, as all statically evaluatable code will be
+# functions) in lieu of macros, as all statically evaluable code will be
 # inlined depending on the optimization settings.
 
 # Functions convey intent - logical separations of execution. Macros do not
@@ -276,7 +276,7 @@ RFC
 zone_path: <zone_identifier> ("." <zone_identifier>)*
 
 # Absolute paths paths are resolved from the root zone, and indicate this
-# with a preceeding period character.
+# with a preceding period character.
 
 RFC
 zone_path_absolute: "." <zone_path>
@@ -300,5 +300,5 @@ zone_path_absolute: "." <zone_path>
 
 # Any imports (1) found after any code statements (2), or any code
 # statements (2) that are found before imports (1), shall be considered
-# errorneous and require compilation to fail. User notification is
+# erroneous and require compilation to fail. User notification is
 # implementation specific.

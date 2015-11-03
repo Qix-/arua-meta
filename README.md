@@ -10,6 +10,27 @@ rest of the proposal's contents.
 
 ## Answers
 
+#### What is Arua's core philosophy?
+Arua code shows the **intent** of the program instead of writing code that
+accommodates the system itself.
+
+The compiler takes care of what that code actually transforms into given the
+configuration and target.
+
+For example, in C, it's commonly accepted to use the `int` type for booleans.
+This is due to a mix of simplicity and optimizations via alignment.
+
+However, in Arua, `i1` (an integer with a 1-bit width) is used. That is because
+its *intent* is *not* to allow any other value than `1` or `0`.
+
+The compiler can then make the assesment on how that type is optimized. If the
+target system doesn't benefit from 32-bit alignment, a single byte will be used
+in order to conserve memory. However, if the compiler is configured to favor
+performance over memory usage/size, and a 32-bit value is faster than an 8-bit
+value due to alignment, the compiler will decide to use a 32-bit value instead.
+
+The target's optimizations should never influence the **intent** of the code.
+
 #### Why yet another language?&#8482;
 The dogmatic answers include:
 

@@ -7,7 +7,7 @@ return_statement: 'ret' [expression]
 
 decl_list: decl | decl ',' decl_list | epsilon
 
-type: i[1-9][0-9]* | f16 | f32 | f64 | f128 | '[' type ']'
+type: i[1-9][0-9]* | f16 | f32 | f64 | f128 | '[' type ']' | '{' type ':' type '}'
 
 
 array : '[' identifier_list ']'

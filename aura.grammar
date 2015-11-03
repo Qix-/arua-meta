@@ -1,3 +1,9 @@
+# Note that DEDENT and INDENT are tokens which stand for spaces or tabs of a
+# consistent length. This makes that grammar context sensitive, so it cannot
+# actually be described in BNF.
+
+NAME: [A-Za-z][A-Xa-z0-9]*
+NEWLINE: '\n'
 
 use_statement: identifier ['as' identifier]
 
@@ -7,30 +13,38 @@ return_statement: 'ret' [expression]
 
 decl_list: decl | decl ',' decl_list | epsilon
 
-type: i[1-9][0-9]* | f16 | f32 | f64 | f128 | '[' type ']' | '{' type ':' type '}'
+type: i[1-9][0-9]* | f16 | f32 | f64 | f128 | '[' type ']' | fn' '(' [type_list] ')' [type] | '(' type_list ')'
 
+type_list: type [',' type_list]
 
-array : '[' identifier_list ']'
+value: identifier | literal
 
-assignment_statement: identifier type '=' expression
+array: '[' value_list ']'
+
+tuple: '(' value_list ')'
+
+assignment_statement: identifier type assignment_op expression
                     | '!' assignment_statement
 
-if_statement: 'if' expression NEWLINE body
+if_statement: 'if' expression NEWLINE INDENT body DEDENT
 
 switch_statement: 'switch' identifier cases
 
-case: 'case' expression [body] ['next']
+case_body: statement | 'next' | NEWLINE INDENT [statement | 'next']+ DEDENT
 
+case: 'case' expression [case_body] | 'default' expression [case_body]
+
+cases: NEWLINE INDENT case+ DEDENT
 
 identifier: NAME
           | identifier '.' identifier
 
-identifier_list: epsilon
-               | identifier
-               | identifier ',' identifier_list
+value_list: epsilon
+          | value
+          | value ',' value
 
 
-on: 'on' NAME ['be' NAME] functions
+behavior: 'on' NAME ['be' NAME] functions
 
 trait: 'trait' NAME function_decls
 
@@ -46,11 +60,15 @@ decls: NEWLINE INDENT decl+ DEDENT
 
 decl: NAME type
 
-statement: if_statement | return_statement | function_def | on | trait | struct
-         | switch_statement | expression | assignment_statement | use_statement
+statement: if_statement | return_statement | function_def | behavior | trait
+         | struct | switch_statement | expression | assignment_statement
+         | use_statement
 
-expression: array | identifier | function_call | binary_expression
+expression: array | identifier | function_call | binary_expression | tuple
 
 binary_expression: expression operator expression
 
-operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '/=' | '?=' | '>' | '<' | '<=' | '>='
+operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '/=' | '?=' | '>' | '<' | '<=' | '>=' |'!!' | '++' | '--' | '<<' | '>>' | '~'  | '%' | 
+
+# FIXME: what is divide and assign?
+assignment_op: '%=' | '|=' | '&=' | '+=' | '-=' | '*=' | '~=' | '<<=' | '>>=' | '='

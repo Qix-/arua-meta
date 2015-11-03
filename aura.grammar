@@ -49,4 +49,8 @@ decl: NAME type
 statement: if_statement | return_statement | function_def | on | trait | struct
          | switch_statement | expression | assignment_statement | use_statement
 
-expression: array | identifier | function_call
+expression: array | identifier | function_call | binary_expression
+
+binary_expression: expression operator expression
+
+operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '/=' | '?=' | '>' | '<' | '<=' | '>='

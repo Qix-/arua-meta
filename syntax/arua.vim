@@ -42,7 +42,7 @@ syn match aruaPrimitive		"\v[iuf][1-9][0-9]*>" display
 
 syn match aruaOperator		"\v\[" display
 syn match aruaOperator		"\v\]" display
-syn match aruaOperator		"\v\!\=?" display
+syn match aruaOperator		"\v\![\=\!]?" display
 syn match aruaOperator		"\v\+[\+\=]?" display
 syn match aruaOperator		"\v\-[\-\=]?" display
 syn match aruaOperator		"\v\*\=?" display

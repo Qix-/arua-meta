@@ -68,7 +68,7 @@ Yes, sort of. Every language is opinionated, though. For example:
 
 In other ways, Arua is very anti-opinion:
 
-- Numeric widths (including floats) have arbitrary widths - always
+- Numeric widths have arbitrary widths - always
 - Every memory model is supported - not just stack and heap
 - Aims to work with existing ABIs (no FFI nonsense to deal with)
 

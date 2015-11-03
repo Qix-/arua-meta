@@ -48,6 +48,7 @@ syn match aruaOperator		"\v\-[\-\=]?" display
 syn match aruaOperator		"\v\*\=?" display
 syn match aruaOperator		"\v\/\=?" display
 syn match aruaOperator		"\v\%\=?" display
+syn match aruaOperator		"\v\~\=?" display
 syn match aruaOperator		"\v\&\&?\=?" display
 syn match aruaOperator		"\v\|\|?\=?" display
 syn match aruaOperator		"\v\<\<?\=?" display

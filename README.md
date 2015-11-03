@@ -60,8 +60,6 @@ Sure:
 - Java-like dependency resolution (Java *gets it right*&#8482;)
 - Explicit switch fallthrough
 - Bounds-checked arrays (that are still 100% compatible with the C family ABI)
-- Regular language - lifetimes still allow for static analysis but don't require
-  non-trivial labels and definitions
 - **No macros**. Why is this a feature? See below.
 - Language conveys intent; **directives** convey specifics (i.e. compiler
   options for portions of code). This means you can apply compiler options

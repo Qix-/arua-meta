@@ -5,7 +5,7 @@
 NAME: [A-Za-z][A-Xa-z0-9]*
 NEWLINE: '\n'
 
-use_statement: 'use' identifier 'as' identifier
+use_statement: 'use' identifier 'as' NAME
              | 'use' identifier
 
 function_def: 'fn' NAME '(' decl_list ')' type NEWLINE function_body
@@ -13,7 +13,7 @@ function_def: 'fn' NAME '(' decl_list ')' type NEWLINE function_body
 return_statement: 'ret' expression
                 | 'ret'
 
-decl_list: decl | decl ',' decl_list | epsilon
+decl_list: decl | decl ',' decl_list | EPSILON
 
 value: identifier | literal
 
@@ -24,13 +24,13 @@ tuple: '(' value_list ')'
 assignment_statement: identifier type assignment_op expression
                     | '!' assignment_statement
 
-if_statement: 'if' expression NEWLINE INDENT body DEDENT
+if_statement: 'if' expression body
 
 switch_statement: 'switch' identifier cases
 
 case_body: statement
          | 'next'
-		 | NEWLINE INDENT statement_or_next+ DEDENT
+         | NEWLINE INDENT statement_or_next+ DEDENT
 
 statement_or_next: statement | next
 
@@ -44,7 +44,7 @@ cases: NEWLINE INDENT case+ DEDENT
 identifier: NAME
           | identifier '.' identifier
 
-value_list: epsilon
+value_list: EPSILON
           | value
           | value ',' value
 
@@ -66,20 +66,21 @@ decls: NEWLINE INDENT decl+ DEDENT
 
 decl: NAME type
 
-statement: if_statement | return_statement | function_def | behavior | trait
-         | struct | switch_statement | expression | assignment_statement
-         | use_statement
+statement: if_statement | return_statement | switch_statement | expression
+         | assignment_statement
+
+top_level: use_statement | behavior | trait | struct | function_def
 
 expression: array | identifier | function_call | binary_expression | tuple
 
 binary_expression: expression operator expression
 
 operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '!='
-        | '==' | '>' | '<' | '<=' | '>=' |'!!' | '++' | '--' | '<<' | '>>'
+        | '==' | '>' | '<' | '<=' | '>=' | '!!' | '++' | '--' | '<<' | '>>'
         | '~'  | '%'
 
 assignment_op: '%=' | '|=' | '&=' | '+=' | '-=' | '*=' | '~=' | '<<=' | '>>='
-             | '='
+             | '=' | '/='
 
 scalar_type: [ui][1-9][0-9]*
            | f16 | f32 | f64 | f128

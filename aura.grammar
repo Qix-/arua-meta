@@ -13,10 +13,6 @@ return_statement: 'ret' [expression]
 
 decl_list: decl | decl ',' decl_list | epsilon
 
-type: i[1-9][0-9]* | f16 | f32 | f64 | f128 | '[' type ']' | fn' '(' [type_list] ')' [type] | '(' type_list ')'
-
-type_list: type [',' type_list]
-
 value: identifier | literal
 
 array: '[' value_list ']'
@@ -68,7 +64,21 @@ expression: array | identifier | function_call | binary_expression | tuple
 
 binary_expression: expression operator expression
 
-operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '/=' | '?=' | '>' | '<' | '<=' | '>=' |'!!' | '++' | '--' | '<<' | '>>' | '~'  | '%' | 
+operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '!='
+        | '==' | '>' | '<' | '<=' | '>=' |'!!' | '++' | '--' | '<<' | '>>'
+        | '~'  | '%'
 
-# FIXME: what is divide and assign?
-assignment_op: '%=' | '|=' | '&=' | '+=' | '-=' | '*=' | '~=' | '<<=' | '>>=' | '='
+assignment_op: '%=' | '|=' | '&=' | '+=' | '-=' | '*=' | '~=' | '<<=' | '>>='
+             | '='
+
+scalar_type: [ui][1-9][0-9]*
+           | f16 | f32 | f64 | f128
+
+type: scalar_type
+    | NAME
+    | '[' NAME ']'
+
+type_list: type [',' type_list]
+
+literal: ".*" | ([1-9][0-9]*(\.[0-9]+)?
+       | (0|[1-9][0-9]*)x[0-9A-Z]+)(e\-?[1-9][0-9]*)?

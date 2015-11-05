@@ -5,11 +5,13 @@
 NAME: [A-Za-z][A-Xa-z0-9]*
 NEWLINE: '\n'
 
-use_statement: identifier ['as' identifier]
+use_statement: 'use' identifier 'as' identifier
+             | 'use' identifier
 
 function_def: 'fn' NAME '(' decl_list ')' type NEWLINE function_body
 
-return_statement: 'ret' [expression]
+return_statement: 'ret' expression
+                | 'ret'
 
 decl_list: decl | decl ',' decl_list | epsilon
 
@@ -26,9 +28,16 @@ if_statement: 'if' expression NEWLINE INDENT body DEDENT
 
 switch_statement: 'switch' identifier cases
 
-case_body: statement | 'next' | NEWLINE INDENT [statement | 'next']+ DEDENT
+case_body: statement
+         | 'next'
+		 | NEWLINE INDENT statement_or_next+ DEDENT
 
-case: 'case' expression [case_body] | 'default' expression [case_body]
+statement_or_next: statement | next
+
+case: 'case' expression case_body
+    | 'case' expression
+    | 'default' expression case_body
+    | 'default' expression
 
 cases: NEWLINE INDENT case+ DEDENT
 
@@ -40,7 +49,8 @@ value_list: epsilon
           | value ',' value
 
 
-behavior: 'on' NAME ['be' NAME] functions
+behavior: 'on' NAME 'be' NAME functions
+        | 'on' NAME functions
 
 trait: 'trait' NAME function_decls
 
@@ -78,7 +88,8 @@ type: scalar_type
     | NAME
     | '[' NAME ']'
 
-type_list: type [',' type_list]
+type_list: type ',' type_list
+         | type
 
 literal: ".*" | ([1-9][0-9]*(\.[0-9]+)?
        | (0|[1-9][0-9]*)x[0-9A-Z]+)(e\-?[1-9][0-9]*)?

@@ -1,0 +1,53 @@
+use_statement: identifier [ 'as' identifier ]
+
+function_def: 'fn' NAME '(' decl_list ')' type NEWLINE function_body
+
+return_statement: 'ret' [ expression ]
+
+decl_list: decl | decl ',' decl_list | epsilon
+
+type: 'i' [1-9] [0-9]* | 'f16' | 'f32' | 'f64' | 'f128' | '[' type ']' | '{' type ':' type '}'
+
+array : '[' identifier_list ']'
+
+assignment_statement: identifier type '=' expression
+                    | '!' assignment_statement
+
+if_statement: 'if' expression NEWLINE body
+
+switch_statement: 'switch' identifier cases
+
+case: 'case' expression [ body ] [ 'next' ]
+
+
+identifier: NAME
+          | identifier '.' identifier
+
+identifier_list: epsilon
+               | identifier
+               | identifier ',' identifier_list
+
+on: 'on' NAME [ 'be' NAME ] functions
+
+trait: 'trait' NAME function_decls
+
+struct: 'struct' NAME decls
+
+function_call: identifier '(' identifier_list ')'
+
+body: statement | NEWLINE INDENT statement+ DEDENT
+
+functions: NEWLINE INDENT function_def+ DEDENT
+
+decls: NEWLINE INDENT decl+ DEDENT
+
+decl: NAME type
+
+statement: if_statement | return_statement | function_def | on | trait | struct
+         | switch_statement | expression | assignment_statement | use_statement
+
+expression: array | identifier | function_call | binary_expression
+
+binary_expression: expression operator expression
+
+operator: '+' | '-' | '/' | '*' | '^' | '&' | '|' | '!' | '&&' | '||' | '/=' | '==' | '>' | '<' | '<=' | '>='

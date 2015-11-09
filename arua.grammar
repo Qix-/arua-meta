@@ -19,7 +19,6 @@ switch_statement: 'switch' identifier cases
 
 case: 'case' expression [ body ] [ 'next' ]
 
-
 identifier: NAME
           | identifier '.' identifier
 

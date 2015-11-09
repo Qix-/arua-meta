@@ -1,0 +1,15 @@
+{
+  "name": "arua-lang-proposal",
+  "private": true,
+  "devDependencies": {
+    "ava": "^0.3.0",
+    "ebnf-parser": "^0.1.10",
+    "error-ex": "^1.2.0",
+    "glob": "^5.0.15",
+    "lex-parser": "^0.1.4",
+    "pegjs": "^0.9.0"
+  },
+  "dependencies": {
+    "error-ex": "^1.3.0"
+  }
+}

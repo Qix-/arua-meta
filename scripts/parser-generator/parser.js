@@ -55,7 +55,7 @@ var filenameError = {
 
 var parser = fs.readFileSync(parserGrammar).toString();
 try {
-	parser = pegjs.buildParser(parser, {trace: true});
+	parser = pegjs.buildParser(parser);
 } catch (e) {
 	var ParserBuildError = errorEx('ParserBuildError', filenameError);
 	var ex = new ParserBuildError(e.message)
@@ -73,4 +73,4 @@ try {
 	throw ex;
 }
 
-console.log(result);
+console.log(require('util').inspect(result, {depth: null}));

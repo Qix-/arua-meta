@@ -46,6 +46,12 @@ literal = LITERAL_CHAR str:$(literal_character+) LITERAL_CHAR
 	}
 
 character_class = cls:$(CHAR_CLASS_BEGIN_CHAR ANY_CHAR_CLASS_CHAR+ CHAR_CLASS_END_CHAR)
+	{
+		return {
+			type: 'character_class',
+			value: cls
+		};
+	}
 
 nonterminal_rule_label = name:nonterminal_name WS* LABEL_CHAR
 	{ return name }

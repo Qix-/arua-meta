@@ -1,0 +1,5 @@
+!x i32
+y i16
+z f128
+!thisIsAVariable SomeType
+thisCantBeChanged SomeOtherType

@@ -108,7 +108,7 @@ nonterminal_rule = name:nonterminal_rule_label WS+ rule:nonterminal_rule_stateme
 	{
 		return {
 			name: name,
-			rule: rule
+			rule: [rule]
 		};
 	}
 terminal_rule = name:terminal_rule_label WS+ rule:terminal_rule_expression

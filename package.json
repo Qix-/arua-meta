@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "ava": "^0.3.0",
+    "backslash": "^0.1.7",
     "ebnf-parser": "^0.1.10",
     "error-ex": "^1.2.0",
     "glob": "^5.0.15",

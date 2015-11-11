@@ -65,12 +65,11 @@ nonterminal_rule_statement_component = nonterminal_rule_statement_optional / non
 
 nonterminal_rule_statement_component_multi = comp:nonterminal_rule_statement_component quant:QUANTIFIER_CHAR?
 	{
-		if (quant instanceof String) {
-			switch (quant) {
-			case '*': comp.arity = [0, Infinity]; break;
-			case '+': comp.arity = [1, Infinity]; break;
-			default: throw new Error('unknown arity:' + quant);
-			}
+		switch (quant) {
+		case '*': comp.arity = [0, Infinity]; break;
+		case '+': comp.arity = [1, Infinity]; break;
+		case null: break;
+		default: throw new Error('unknown arity:' + quant);
 		}
 
 		return comp;

@@ -30,27 +30,3 @@ fn numbers()
 	foo++
 
 	foo *= ++foo
-
-fn complexNumbers()
-	# complex math is under heavy consideration as of now.
-	# this demo is neither complete nor finalized.
-	# input is definitely welcome.
-
-	# as well, "complex" math is a bit of a misnomer, as the region simply
-	# enables special identifiers and wrappers for the `math` zone.
-
-	a i32 = 15
-	b i32 = 26
-	hypotenuse f32 = `sqrt(a^2 + b^2)` # 30.0166620396
-	hypotenuse2 f32 = `√(a^2 + b^2)` #   ^ equivalent
-
-	iSquared f32 = `i ^ 2` # -1
-
-	tau f64 = `2π`
-
-	radius f32 = 15.8
-	cirumference f32 = `τ * radius`
-
-	tauEpsilon f128 = `τ - ε`
-
-	isInf i1 = infinity == `∞` # true (1)

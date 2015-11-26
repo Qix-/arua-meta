@@ -82,7 +82,7 @@ Sure:
 - Explicit switch fallthrough
 - Bounds-checked arrays (that are still 100% compatible with the C family ABI)
 - **No macros**. Why is this a feature? See below.
-- Language conveys intent; **directives** convey specifics (i.e. compiler
+- Language conveys intent; **details** convey specifics (i.e. compiler
   options for portions of code). This means you can apply compiler options
   globally (via the command line), or for blocks of code (not just functions!)
 - Fully compatible with C/C++ ABI
@@ -116,7 +116,7 @@ in order to inline most const-able functions - many of which may be evaluated
 in place at compile time.
 
 As well, for those functions you know can't be statically evaluated, you can
-always slip in a compiler directive to instruct the compiler to inline if
+always slip in a compiler detail to instruct the compiler to inline if
 possible.
 
 #### Where does the language draw the line between compiler-related constructs?
@@ -131,4 +131,4 @@ it's a *detail*, thus it is specified within a compiler directive.
 
 Otherwise, it most likely attempts to describe some sort of logic or layout of
 the program, in which case it belongs in the language semantics (notwithstanding
-compiler directives).
+compiler details).
